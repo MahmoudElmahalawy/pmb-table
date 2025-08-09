@@ -53,40 +53,44 @@ const Pagination: React.FC<PaginationProps> = ({
             ))}
           </select>
         </div>
+      </div>
 
-        <div className="flex items-center gap-2 text-sm">
-          <button
-            className="rounded border border-gray-300 px-2 py-1 text-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={gotoFirst}
-            disabled={!canPreviousPage}
-          >
-            « First
-          </button>
-          <button
-            className="rounded border border-gray-300 px-2 py-1 text-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={gotoPrev}
-            disabled={!canPreviousPage}
-          >
-            ‹ Prev
-          </button>
-          <span className="px-2">
-            Page {pageIndex + 1} of {pageCount || 1}
-          </span>
-          <button
-            className="rounded border border-gray-300 px-2 py-1 text-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={gotoNext}
-            disabled={!canNextPage}
-          >
-            Next ›
-          </button>
-          <button
-            className="rounded border border-gray-300 px-2 py-1 text-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={gotoLast}
-            disabled={!canNextPage}
-          >
-            Last »
-          </button>
-        </div>
+      <div className="flex items-center gap-2 text-sm">
+        <button
+          className="rounded border border-gray-300 px-2 py-1 text-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
+          onClick={gotoFirst}
+          disabled={!canPreviousPage}
+        >
+          <span>«</span>
+          <span className="ms-1 hidden sm:inline-block">First</span>
+        </button>
+        <button
+          className="rounded border border-gray-300 px-2 py-1 text-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
+          onClick={gotoPrev}
+          disabled={!canPreviousPage}
+        >
+          <span>‹</span>
+          <span className="ms-1 hidden sm:inline-block">Prev</span>
+        </button>
+        <span className="px-2">
+          Page {pageIndex + 1} of {pageCount || 1}
+        </span>
+        <button
+          className="rounded border border-gray-300 px-2 py-1 text-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
+          onClick={gotoNext}
+          disabled={!canNextPage}
+        >
+          <span className="me-1 hidden sm:inline-block">Next</span>
+          <span>›</span>
+        </button>
+        <button
+          className="rounded border border-gray-300 px-2 py-1 text-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
+          onClick={gotoLast}
+          disabled={!canNextPage}
+        >
+          <span className="me-1 hidden sm:inline-block">Last</span>
+          <span>»</span>
+        </button>
       </div>
     </div>
   );
