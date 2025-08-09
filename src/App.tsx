@@ -10,6 +10,8 @@ function App() {
       type: "string",
       width: "100px",
       align: "left",
+      sortable: true,
+      filterable: true,
     },
     amount_cents: {
       key: "amount_cents",
@@ -17,6 +19,8 @@ function App() {
       type: "currency",
       width: "150px",
       align: "center",
+      sortable: true,
+      filterable: true,
     },
     currency: {
       key: "currency",
@@ -24,6 +28,8 @@ function App() {
       type: "string",
       width: "100px",
       align: "center",
+      sortable: true,
+      filterable: true,
     },
     payment_status: {
       key: "payment_status",
@@ -31,6 +37,8 @@ function App() {
       type: "status",
       width: "120px",
       align: "center",
+      sortable: true,
+      filterable: true,
     },
     created_at: {
       key: "created_at",
@@ -38,6 +46,8 @@ function App() {
       type: "date",
       width: "200px",
       align: "left",
+      sortable: true,
+      filterable: true,
     },
   };
 
@@ -46,11 +56,11 @@ function App() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h1 className="mb-2 text-3xl font-bold text-gray-900">
-            Reusable Table Component
+            Enhanced Table Component
           </h1>
           <p className="text-gray-600">
-            A flexible and dynamic table component built with React and Tailwind
-            CSS
+            A flexible and dynamic table component built with React, TanStack
+            Table, and Tailwind CSS
           </p>
         </div>
 
