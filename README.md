@@ -25,8 +25,8 @@ A flexible and dynamic table component built with React, TypeScript, and Tailwin
 ### Basic Example
 
 ```tsx
-import TableComponent from "./components/TableComponent";
-import { HeadersConfig } from "./types/table";
+import Table from "./components/Table";
+import type { HeadersConfig } from "./types/table";
 
 const headersConfig: HeadersConfig = {
   id: {
@@ -61,13 +61,7 @@ const data = [
 ];
 
 function App() {
-  return (
-    <TableComponent
-      headersConfig={headersConfig}
-      data={data}
-      className="w-full"
-    />
-  );
+  return <Table headersConfig={headersConfig} data={data} className="w-full" />;
 }
 ```
 
@@ -80,14 +74,15 @@ Each header configuration supports the following properties:
 - **type**: Data type ('string', 'number', 'date', 'currency', 'status')
 - **width**: Optional column width (e.g., '100px', '20%')
 - **align**: Text alignment ('left', 'center', 'right')
-- **sortable**: Optional flag for future sorting functionality
+- **sortable**: Optional flag for sorting functionality
+- **filterable**: Optional flag for column filtering functionality
 
 ## Installation
 
 1. Install dependencies:
 
 ```bash
-npm install tailwindcss @tailwindcss/vite
+npm install
 ```
 
 2. The component is ready to use with the provided TypeScript interfaces.
@@ -122,11 +117,15 @@ npm install tailwindcss @tailwindcss/vite
 ```
 src/
 ├── components/
-│   └── TableComponent.tsx    # Main table component
+│   ├── Table.tsx                 # Main table composer
+│   └── table/
+│       ├── Search.tsx            # Global search + filter toggle
+│       ├── Filters.tsx           # Column filters (date range, number, status, text)
+│       └── Pagination.tsx        # Page size select + nav
 ├── types/
-│   └── table.ts             # TypeScript interfaces
-├── App.tsx                  # Demo implementation
-└── index.css               # Tailwind CSS imports
+│   └── table.ts                  # TypeScript interfaces
+├── App.tsx                       # Demo implementation
+└── index.css                     # Tailwind CSS imports
 ```
 
 ## Running the Demo
